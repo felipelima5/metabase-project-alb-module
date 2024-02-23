@@ -12,3 +12,7 @@ variable "tags" {
     ManagedBy = "Terraform"
   }
 }
+
+variable "enable_versioning_configuration" {
+  type = string
+}
