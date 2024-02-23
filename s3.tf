@@ -19,3 +19,11 @@ resource "aws_s3_bucket_policy" "this" {
   bucket = var.enable_create_s3_bucket_log == true ? aws_s3_bucket.this[0].id : ""
   policy = data.aws_iam_policy_document.allow_from_alb.json
 }
+
+resource "aws_s3_bucket_versioning" "this" {
+  count  = var.enable_create_s3_bucket_log == true ? 1 : 0
+  bucket = aws_s3_bucket.this[0].id
+  versioning_configuration {
+    status = var.enable_versioning_configuration
+  }
+}
