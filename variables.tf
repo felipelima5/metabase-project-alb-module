@@ -44,3 +44,7 @@ variable "access_logs_prefix" {
 variable "aditional_tags" {
   type = map(string)
 }
+
+variable "create_rule_redirect_https" {
+  type = bool
+}
