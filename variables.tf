@@ -32,3 +32,15 @@ variable "load_balancer_type" {
 variable "subnets_ids" {
   type = list(string)
 }
+
+variable "enable_deletion_protection" {
+  type = bool
+}
+
+variable "access_logs_prefix" {
+  type = string
+}
+
+variable "aditional_tags" {
+  type = map(string)
+}
