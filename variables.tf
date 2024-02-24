@@ -16,3 +16,19 @@ variable "tags" {
 variable "enable_versioning_configuration" {
   type = string
 }
+
+variable "alb_name" {
+  type = string
+}
+
+variable "internal" {
+  type = bool
+}
+
+variable "load_balancer_type" {
+  type = string
+}
+
+variable "subnets_ids" {
+  type = list(string)
+}
