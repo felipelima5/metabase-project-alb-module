@@ -36,3 +36,11 @@ resource "aws_lb_listener" "redirect" {
   }
   tags = merge(var.tags, var.aditional_tags)
 }
+
+
+resource "aws_security_group" "this" {
+  name        = "${var.alb_name}-application"
+  description = "Allow Traffic Communication ${var.alb_name}-application"
+  vpc_id      = var.vpc_id
+
+}
