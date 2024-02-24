@@ -52,3 +52,13 @@ variable "create_rule_redirect_https" {
 variable "vpc_id" {
   type = string
 }
+
+variable "security_group_app_ingress_rules" {
+  type = list(object({
+    description     = string
+    port            = number
+    protocol        = string
+    security_groups = list(string)
+    cidr_blocks     = list(string)
+  }))
+}

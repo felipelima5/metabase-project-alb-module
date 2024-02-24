@@ -43,4 +43,15 @@ resource "aws_security_group" "this" {
   description = "Allow Traffic Communication ${var.alb_name}-application"
   vpc_id      = var.vpc_id
 
+  dynamic "ingress" {
+    for_each = var.security_group_app_ingress_rules
+    content {
+      description     = ingress.value["description"]
+      from_port       = ingress.value["port"]
+      to_port         = ingress.value["port"]
+      protocol        = ingress.value["protocol"]
+      security_groups = ingress.value["security_groups"]
+      cidr_blocks     = ingress.value["cidr_blocks"]
+    }
+  }
 }
