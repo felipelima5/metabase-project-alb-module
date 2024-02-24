@@ -62,3 +62,13 @@ variable "security_group_app_ingress_rules" {
     cidr_blocks     = list(string)
   }))
 }
+
+variable "security_group_app_egress_rules" {
+  type = list(object({
+    description     = string
+    port            = number
+    protocol        = string
+    security_groups = list(string)
+    cidr_blocks     = list(string)
+  }))
+}
