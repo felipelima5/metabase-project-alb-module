@@ -54,4 +54,18 @@ resource "aws_security_group" "this" {
       cidr_blocks     = ingress.value["cidr_blocks"]
     }
   }
+
+  dynamic "egress" {
+    for_each = var.security_group_app_egress_rules
+    content {
+      description     = egress.value["description"]
+      from_port       = egress.value["port"]
+      to_port         = egress.value["port"]
+      protocol        = egress.value["protocol"]
+      security_groups = egress.value["security_groups"]
+      cidr_blocks     = egress.value["cidr_blocks"]
+    }
+  }
+
+  tags = merge(var.tags, var.aditional_tags)
 }
