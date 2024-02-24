@@ -48,3 +48,7 @@ variable "aditional_tags" {
 variable "create_rule_redirect_https" {
   type = bool
 }
+
+variable "vpc_id" {
+  type = string
+}
