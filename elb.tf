@@ -68,4 +68,5 @@ resource "aws_security_group" "this" {
   }
 
   tags = merge(var.tags, var.aditional_tags)
+  
 }
